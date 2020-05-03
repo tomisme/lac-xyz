@@ -23,8 +23,8 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        display: `minimal-ui`
+        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -37,7 +37,7 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'demo.wp-api.org' or 'www.example-site.com'
          */
-        baseUrl: "lightsandclockwork.xyz",
+        baseUrl: "wp.lightsandclockwork.xyz",
         // The protocol. This can be http or https.
         protocol: "https",
         // The rest api route prefix that your WordPress site is using.
@@ -96,8 +96,8 @@ module.exports = {
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://source-url.com",
-          replacementUrl: "https://replacement-url.com",
+          sourceUrl: "https://wp.lightsandclockwork.xyz",
+          replacementUrl: "https://localhost:8000",
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
@@ -118,11 +118,11 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
           "**/users",
-          "**/*/*/menus", // <== Menu api endpoint
-          "**/*/*/menu-locations", // <== Menu api endpoint
+          "**/*/*/menus",
+          "**/*/*/menu-locations",
         ],
         // Blacklisted routes using glob patterns
-        excludedRoutes: ["**/posts/1456"],
+        excludedRoutes: [],
         // Set this to keep media sizes.
         // This option is particularly useful in case you need access to
         // URLs for thumbnails, or any other media detail.
