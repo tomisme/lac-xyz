@@ -1,32 +1,10 @@
+import he from "he"
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-const BlogPostTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.wordpressPost.title}
-      description={data.wordpressPost.excerpt}
-    />
-    <h1>{data.wordpressPost.title}</h1>
-    <p>
-      Written by {data.wordpressPost.author.name} on {data.wordpressPost.date}
-    </p>
-    {/* <Img
-      sizes={data.wordpressPost.acf.feat_img.localFile.childImageSharp.sizes}
-      alt={data.wordpressPost.title}
-      style={{ maxHeight: 450 }}
-    /> */}
-    <div
-      style={{ marginTop: 20 }}
-      dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
-    />
-  </Layout>
-)
-
-export default BlogPostTemplate
+import PostedBy from "../components/PostedBy"
 
 export const query = graphql`
   query($id: Int!) {
@@ -38,6 +16,32 @@ export const query = graphql`
       author {
         name
       }
+      categories {
+        name
+        slug
+      }
     }
   }
 `
+
+const BlogPostTemplate = ({ data }) => {
+  const post = data.wordpressPost;
+  const title = he.decode(post.title)
+  return (
+    <Layout>
+      <SEO
+        title={title}
+        description={data.wordpressPost.excerpt}
+      />
+      <h1>{title}</h1>
+      <PostedBy {...post} withBg/>
+      <hr></hr>
+      <div
+        style={{ marginTop: 20 }}
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+    </Layout>
+  )
+}
+
+export default BlogPostTemplate

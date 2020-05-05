@@ -1,18 +1,8 @@
+import he from "he"
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout.js"
 import SEO from "../components/seo"
-const PageTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.wordpressPage.title}
-      description={data.wordpressPage.excerpt}
-    />
-    <h1>{data.wordpressPage.title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
-  </Layout>
-)
-export default PageTemplate
 
 export const query = graphql`
   query($id: Int!) {
@@ -23,3 +13,15 @@ export const query = graphql`
     }
   }
 `
+
+const PageTemplate = ({ data }) => {
+  const title = he.decode(data.wordpressPage.title)
+  return (
+    <Layout>
+      <SEO title={title} description={data.wordpressPage.excerpt} />
+      <h1>{title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+    </Layout>
+  )
+}
+export default PageTemplate
