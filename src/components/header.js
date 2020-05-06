@@ -2,6 +2,7 @@ import he from "he"
 import { StaticQuery, graphql, Link } from "gatsby"
 import React from "react"
 import header from "../images/header.svg"
+import paypalImgSrc from "../images/paypal.gif"
 
 const menus = [
   {
@@ -86,20 +87,25 @@ const Header = () => (
               </li>
             ))}
           </ul>
-          <div
-            style={{ lineHeight: 0 }}
-            dangerouslySetInnerHTML={{
-              __html: `
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <div style={{ lineHeight: 0 }}>
+            <form
+              action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"
+              target="_top"
+            >
               <input type="hidden" name="cmd" value="_donations" />
               <input type="hidden" name="business" value="YFEU5DAU2DNZC" />
               <input type="hidden" name="currency_code" value="AUD" />
-              <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-              <img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1" />
-              </form>
-          `,
-            }}
-          ></div>
+              <input
+                type="image"
+                src={paypalImgSrc}
+                border="0"
+                name="submit"
+                title="Donate with PayPal"
+                alt="Donate with PayPal button"
+              />
+            </form>
+          </div>
         </div>
       </header>
     )}

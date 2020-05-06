@@ -31,6 +31,7 @@ export const query = graphql`
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={["blog"]} />
+    <h1>Blog Posts</h1>
     <ul class="post-list" style={{ listStyle: "none" }}>
       {data.allWordpressPost.edges.map(post => (
         <li style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}>
