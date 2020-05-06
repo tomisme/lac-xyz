@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO keywords={["home"]} />
     <h3>Recent Posts</h3>
-    <ul style={{ listStyle: "none" }}>
+    <ul class="post-list" style={{ listStyle: "none" }}>
       {data.allWordpressPost.edges.map(post => (
         <li style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}>
           <Link
@@ -43,7 +43,6 @@ const IndexPage = ({ data }) => (
             <div style={{}}>
               <h3
                 dangerouslySetInnerHTML={{ __html: post.node.title }}
-                style={{ marginBottom: 0 }}
               />
               <PostedBy {...post.node} />
               <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />

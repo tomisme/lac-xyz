@@ -35,6 +35,7 @@ const BlogPostTemplate = ({ data }) => {
       />
       <h1>{title}</h1>
       <PostedBy {...post} withBg/>
+      <br></br>
       <hr></hr>
       <div
         style={{ marginTop: 20 }}

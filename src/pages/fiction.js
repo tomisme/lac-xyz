@@ -7,7 +7,7 @@ import PostedBy from "../components/PostedBy"
 
 export const query = graphql`
   query {
-    allWordpressPost(filter: {categories: {elemMatch: {name: {eq: "Blog"}}}}) {
+    allWordpressPost(filter: {categories: {elemMatch: {name: {eq: "The Facade"}}}}) {
       edges {
         node {
           path
@@ -30,21 +30,22 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={["blog"]} />
-    <ul class="post-list" style={{ listStyle: "none" }}>
+    <SEO title="Fiction" keywords={["fiction"]} />
+    <h1>Elisa's Fiction</h1>
+    <h2>The Facade</h2>
+    <p>A novel about...</p>
+    <p>Here are the chapters I've posted so far:</p>
+    <ul>
       {data.allWordpressPost.edges.map(post => (
-        <li style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}>
+        <li>
           <Link
             to={post.node.path}
             style={{ display: "flex", color: "black", textDecoration: "none" }}
           >
-            <div style={{}}>
-              <h3
+              <span
                 dangerouslySetInnerHTML={{ __html: post.node.title }}
+                style={{ marginBottom: 0 }}
               />
-              <PostedBy {...post.node} />
-              <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-            </div>
           </Link>
         </li>
       ))}
