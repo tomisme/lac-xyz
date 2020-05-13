@@ -1,7 +1,3 @@
-body {
-  /* background:grey; */
-}
-
 .wrapper {
   background: white;
   margin: 0 auto;
@@ -14,6 +10,7 @@ header ul {
   margin: 0;
   justify-content: space-around;
 }
+
 header ul li {
   margin: 0 0.1rem;
   padding: 0 1rem;
@@ -41,17 +38,16 @@ footer {
   padding-bottom: 2rem;
 }
 
-.post-list h3 {
-  margin-bottom: 0.25rem;
+.fiction-title {
+  margin-bottom: 0.2rem;
 }
 
-/* for the facade author's note */
-pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+.fiction-subheading {
+  margin-left: 0.5rem;
+}
+
+.post-list h3 {
+  margin-bottom: 0.25rem;
 }
 
 .posted-by-bg {
@@ -61,7 +57,25 @@ pre {
   margin: 0.3rem 0;
 }
 
-/* recipe stuff */
+/* for The Facade author's note */
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* wordpress */
+
+.wp-block-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* recipes */
 
 .wprm-recipe-container {
   border: 1px solid grey;
