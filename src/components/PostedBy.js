@@ -6,6 +6,6 @@ export default ({ categories, author, date, withBg }) => (
     {categories.map(cat => console.log(cat) || (
       <a href={`${cat.path}`}>{cat.name}</a>
     ))}{" "}
-    by {author.name} on {date} for the hell of it!
+    by {author.name} on {date}
   </div>
 )
