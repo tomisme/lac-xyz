@@ -1,13 +1,11 @@
 import React from "react"
 
-const PostedBy = ({ categories, author, date, withBg }) => (
+export default ({ categories, author, date, withBg }) => (
   <div className={withBg ? "posted-by" : "posted-by-bg"}>
     Posted in{" "}
-    {categories.map(cat => (
-      <a href={`/${cat.slug}`}>{cat.name}</a>
+    {categories.map(cat => console.log(cat) || (
+      <a href={`${cat.path}`}>{cat.name}</a>
     ))}{" "}
-    by {author.name} on {date}
+    by {author.name} on {date} for the hell of it!
   </div>
 )
-
-export default PostedBy

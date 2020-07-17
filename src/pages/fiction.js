@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,7 +7,7 @@ import PostedBy from "../components/PostedBy"
 
 export const query = graphql`
   query {
-    allWordpressPost {
+    allWordpressPost(filter: {categories: {elemMatch: {name: {eq: "When the Bell Goes"}}}}) {
       edges {
         node {
           path
@@ -32,8 +31,8 @@ export const query = graphql`
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO keywords={["home"]} />
-    <h1>Recent Posts</h1>
+    <SEO title="Home" keywords={[]} />
+    <h1>Recently Posted Fiction</h1>
     <ul class="post-list" style={{ listStyle: "none" }}>
       {data.allWordpressPost.edges.map(post => (
         <li style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}>

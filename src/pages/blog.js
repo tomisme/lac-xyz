@@ -20,7 +20,8 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           categories {
             name,
-            slug
+            slug,
+            path
           }
         }
       }

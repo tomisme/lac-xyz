@@ -20,7 +20,8 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           categories {
             name,
-            slug
+            slug,
+            path
           }
         }
       }
@@ -31,7 +32,7 @@ export const query = graphql`
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={["recipes", "instant pot"]} />
-    <h1>Recipes</h1>
+    <h1>Latest Recipes</h1>
     <ul class="post-list" style={{ listStyle: "none" }}>
       {data.allWordpressPost.edges.map(post => (
         <li style={{ padding: "20px 0", borderBottom: "1px solid #ccc" }}>
